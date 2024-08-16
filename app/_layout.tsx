@@ -17,7 +17,7 @@ export default function RootLayout() {
         headerTitle: "Front page"
       }} />
       <Stack.Screen name="(auth)" options={{
-        headerTitle: "Auth"
+        headerTitle: "Authentication",
       }} />
       <Stack.Screen name="(home)" options={{
         headerTitle: "Home"

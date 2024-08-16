@@ -1,14 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Link } from 'expo-router'
+import { Link, router } from 'expo-router'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import CustomButton from '@/components/CustomButton'
 
 const index = () => {
   return (
-    <View>
-      <Text>welcome</Text>
-      <Link href="/login">Login</Link>
-      <Link href="/signup">Sign up</Link>
-    </View>
+    <SafeAreaView>
+      <Text>welcome to TodoApp</Text>
+      <CustomButton
+        title='Login'
+        handlePress={() => router.push("/login")}
+      />
+      <CustomButton
+        title='Sign Up'
+        handlePress={() => router.push("/signup")}
+      />
+    </SafeAreaView>
   )
 }
 
