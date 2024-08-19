@@ -5,23 +5,32 @@ export default function RootLayout() {
     <Stack
       screenOptions={{
         headerStyle: {
-          backgroundColor: '#f4511e',
+          backgroundColor: "#f4511e",
         },
-        headerTintColor: '#fff',
+        headerTintColor: "#fff",
         headerTitleStyle: {
-          fontWeight: 'bold',
+          fontWeight: "bold",
         },
       }}
     >
-      <Stack.Screen name="index" options={{
-        headerTitle: "Front page"
-      }} />
-      <Stack.Screen name="(auth)" options={{
-        headerTitle: "Authentication",
-      }} />
-      <Stack.Screen name="(home)" options={{
-        headerTitle: "Home"
-      }} />
+      <Stack.Screen
+        name="index"
+        options={{
+          headerTitle: "Front page",
+        }}
+      />
+      <Stack.Screen
+        name="(auth)"
+        options={{
+          headerTitle: "Authentication",
+        }}
+      />
+      <Stack.Screen
+        name="(home)"
+        options={{
+          headerTitle: "Home",
+        }}
+      />
     </Stack>
   );
 }

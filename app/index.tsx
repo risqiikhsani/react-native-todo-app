@@ -3,6 +3,7 @@ import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CustomButton from "@/components/CustomButton";
 import { router } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 
 export default function Index() {
   return (
@@ -13,17 +14,22 @@ export default function Index() {
         alignItems: "center",
       }}
     >
+      <StatusBar style="light" />
 
       <Text className="font-bold">Edit app/index.tsx to edit this screen.</Text>
       <Text>Testing</Text>
 
       <CustomButton
         title="View home"
-        handlePress={() => router.push('/(home)')}
+        handlePress={() => router.push("/(home)")}
       />
       <CustomButton
         title="View Auth"
-        handlePress={() => router.push('/(auth)')}
+        handlePress={() => router.push("/(auth)")}
+      />
+      <CustomButton
+        title="View List"
+        handlePress={() => router.push("/list")}
       />
     </SafeAreaView>
   );
