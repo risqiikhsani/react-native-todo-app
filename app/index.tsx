@@ -43,6 +43,10 @@ export default function Index() {
         title="View Video"
         handlePress={() => router.push("/video")}
       />
+      <CustomButton
+        title="View animated"
+        handlePress={() => router.push("/animated")}
+      />
     </SafeAreaView>
   );
 }
