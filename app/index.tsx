@@ -31,6 +31,18 @@ export default function Index() {
         title="View List"
         handlePress={() => router.push("/list")}
       />
+      <CustomButton
+        title="View Form"
+        handlePress={() => router.push("/form")}
+      />
+      <CustomButton
+        title="View Image"
+        handlePress={() => router.push("/image")}
+      />
+      <CustomButton
+        title="View Video"
+        handlePress={() => router.push("/video")}
+      />
     </SafeAreaView>
   );
 }
