@@ -1,58 +1,71 @@
-import { FlatList, StyleSheet, Text, View } from 'react-native'
-import React, { useEffect, useState } from 'react'
+import { FlatList, Text, View, ActivityIndicator, Pressable } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Link } from "expo-router";
 
-const index = () => {
-
-  const [data,setData] = useState([])
-  const [loading,setLoading] = useState(true) 
-  const [error,setError] = useState(null)
-
-  // fetch data from API
+const Index = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchData()
-  },[])
+    fetchData();
+  }, []);
 
-  const fetchData = async() => {
+  const fetchData = async () => {
     try {
-     const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/cats`,{
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-     }) 
-     const json = await response.json()
-     setData(json)
+      const response = await fetch(`${process.env.EXPO_PUBLIC_API_URL}/cats`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await response.json();
+      setData(json);
     } catch (error) {
-      console.error(error)
-      setError(error.message)
+      console.error(error);
+      setError(error.message);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }
-
+  };
 
   return (
-    <View>
-      <Text>test</Text>
-      {error && <Text>{error}</Text>}
-      {
-        loading ? (
-          <Text>Loading...</Text>
-        ) : (
-          <FlatList
-            data={data}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({item}) => (
-              <Text>{item.name}</Text>
-            )}
-          />
-        ) 
-      }
+    <View className="flex-1 bg-gray-100 p-4">
+      <Text className="text-xl font-semibold text-center mb-4">Cat List</Text>
+      <Link className="b-2 p-2 rounded-md bg-red-300 my-2" href="/crud/create">
+        <Text>
+          Create cat
+        </Text>
+      </Link>
+      {error && <Text className="text-red-500 text-center mb-4">{error}</Text>}
+      {loading ? (
+        <View className="flex-1 justify-center items-center">
+          <ActivityIndicator size="large" color="#0000ff" />
+          <Text className="text-lg text-gray-700 mt-2">Loading...</Text>
+        </View>
+      ) : (
+        <FlatList
+          data={data}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => (
+            <View className="bg-white p-4 rounded-lg shadow mb-4">
+              <Text className="text-lg font-medium text-gray-900">
+                {item.name}
+              </Text>
+              <Link
+                href={{
+                  pathname: "/crud/[id]",
+                  params: { id: item.id.toString() },
+                }}
+              >
+                View details
+              </Link>
+            </View>
+          )}
+        />
+      )}
     </View>
-  )
-}
+  );
+};
 
-export default index
-
-const styles = StyleSheet.create({})
+export default Index;

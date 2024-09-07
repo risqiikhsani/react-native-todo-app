@@ -31,6 +31,30 @@ export default function RootLayout() {
           headerTitle: "Home",
         }}
       />
+      <Stack.Screen
+        name="crud/index"
+        options={{
+          headerTitle: "CRUD",
+        }}
+      />
+      <Stack.Screen
+        name="crud/create"
+        options={{
+          headerTitle: "Create Cat",
+        }}
+      />
+      <Stack.Screen
+        name="crud/[id]/index"
+        options={{
+          headerTitle: "Cat detail",
+        }}
+      />
+      <Stack.Screen
+        name="crud/[id]/update"
+        options={{
+          headerTitle: "Cat Update",
+        }}
+      />
     </Stack>
   );
 }
