@@ -51,6 +51,10 @@ export default function Index() {
         title="View CRUD"
         handlePress={() => router.push("/crud")}
       />
+      <CustomButton
+        title="View context"
+        handlePress={() => router.push("/context")}
+      />
     </SafeAreaView>
   );
 }

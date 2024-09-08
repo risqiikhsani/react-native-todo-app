@@ -1,7 +1,10 @@
+import { StateProvider } from "@/context/StateContext";
 import { Stack } from "expo-router";
 
 export default function RootLayout() {
   return (
+    <StateProvider>
+
     <Stack
       screenOptions={{
         headerStyle: {
@@ -56,5 +59,7 @@ export default function RootLayout() {
         }}
       />
     </Stack>
+          
+    </StateProvider>
   );
 }
